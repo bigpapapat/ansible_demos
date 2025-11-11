@@ -1,15 +1,19 @@
 ---
-- name: Check Web Applications
-  hosts: stig-test
+- name: URL check rulebook
+  hosts: all
   sources:
-    - ansible.eda.url_check:
-        urls:
-          - http://ec2-54-165-215-182.compute-1.amazonaws.com
-        delay: 10
+    - name: MyUrlEventSource
+      # This is an example, replace with the actual source plugin and its configuration
+      # The source plugin is responsible for generating events when a URL status changes.
+      # For example, it might listen for a webhook from a monitoring service.
+      # Example using a webhook source:
+      ansible.eda.webhook:
+        host: ec2-54-165-215-182.compute-1.amazonaws.com
+        port: 80
   rules:
-    - name: Web-applications are down
-      condition: 
-        event.url_check.status == "down"
+    - name: Check for failed URL
+      condition: event.url_status == "failed" 
       action:
+        # Action to run if the condition is met, e.g., run a playbook to restart a service
         run_playbook:
           name: start_httpd.yml
