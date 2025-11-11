@@ -7,11 +7,13 @@
       # The source plugin is responsible for generating events when a URL status changes.
       # For example, it might listen for a webhook from a monitoring service.
       # Example using a webhook source:
-      ansible.eda.url:
-        host: http://ec2-54-165-215-182.compute-1.amazonaws.com/
+      ansible.eda.url_check:
+        urls: 
+          - http://ec2-54-165-215-182.compute-1.amazonaws.com/
+        delay: 30
   rules:
     - name: Check for failed URL
-      condition: event.url_status == "failed" 
+      condition: event.url_check.status == "down"
       action:
         # Action to run if the condition is met, e.g., run a playbook to restart a service
         run_job_template:
