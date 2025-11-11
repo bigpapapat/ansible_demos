@@ -1,6 +1,6 @@
 ---
 - name: Start service
-  hosts: "{{ _hosts | default(omit) }}"
+  hosts: stig-test
   become: true
   vars:
     service_name: httpd
