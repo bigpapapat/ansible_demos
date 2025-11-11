@@ -1,6 +1,6 @@
 ---
 - name: URL check rulebook
-  hosts: localhost
+  hosts: all
   sources:
     - name: MyUrlEventSource
       # This is an example, replace with the actual source plugin and its configuration
