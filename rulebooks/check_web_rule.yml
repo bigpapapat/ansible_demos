@@ -15,5 +15,5 @@
       condition: event.url_status == "failed" 
       action:
         # Action to run if the condition is met, e.g., run a playbook to restart a service
-        run_playbook:
-          name: start_httpd.yml
+        run_job_template:
+          name: restart_httpd
