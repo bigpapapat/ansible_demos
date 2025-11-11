@@ -1,6 +1,6 @@
 ---
 - name: Check Web Applications
-  hosts: web_servers
+  hosts: stig-test
   sources:
     - ansible.eda.url_check:
         urls:
