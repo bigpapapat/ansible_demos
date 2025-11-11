@@ -7,9 +7,8 @@
       # The source plugin is responsible for generating events when a URL status changes.
       # For example, it might listen for a webhook from a monitoring service.
       # Example using a webhook source:
-      ansible.eda.webhook:
-        host: ec2-54-165-215-182.compute-1.amazonaws.com
-        port: 80
+      ansible.eda.url:
+        host: http://ec2-54-165-215-182.compute-1.amazonaws.com/
   rules:
     - name: Check for failed URL
       condition: event.url_status == "failed" 
