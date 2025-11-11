@@ -1,0 +1,15 @@
+---
+- name: Check Web Applications
+  hosts: web_servers
+  sources:
+    - ansible.eda.url_check:
+        urls:
+          - http://ec2-54-165-215-182.compute-1.amazonaws.com
+        delay: 10
+  rules:
+    - name: Web-applications are down
+      condition: 
+        event.url_check.status == "down"
+      action:
+        run_playbook:
+          name: start_httpd.yml
