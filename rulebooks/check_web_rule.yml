@@ -5,7 +5,7 @@
     - name: MyUrlEventSource
       ansible.eda.url_check:
         urls: 
-          - http://ec2-34-204-69-199.compute-1.amazonaws.com/oscap-reports/
+          - http://ec2-3-91-186-247.compute-1.amazonaws.com/oscap-reports/
         delay: 30
         verify_ssl: false
   rules:
