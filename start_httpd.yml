@@ -6,9 +6,6 @@
     service_name: httpd
 
   tasks:
-    - name: Check Service
-      ansible.builtin.service_facts:
-
     - name: Start Service
       ansible.builtin.service:
         name: "{{ service_name }}"
