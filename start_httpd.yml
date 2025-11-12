@@ -1,6 +1,6 @@
 ---
 - name: Start service
-  hosts: stig-test
+  hosts: all
   become: true
   vars:
     service_name: httpd
