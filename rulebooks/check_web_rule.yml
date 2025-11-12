@@ -9,8 +9,9 @@
       # Example using a webhook source:
       ansible.eda.url_check:
         urls: 
-          - http://ec2-54-165-215-182.compute-1.amazonaws.com/
+          - http://ec2-54-165-215-182.compute-1.amazonaws.com
         delay: 30
+        verify_ssl: false
   rules:
     - name: Check for failed URL
       condition: event.url_check.status == "down"
