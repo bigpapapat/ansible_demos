@@ -12,6 +12,5 @@
     - name: Check for failed URL
       condition: event.url_check.status == "down"
       action:
-        # Action to run if the condition is met, e.g., run a playbook to restart a service
         run_job_template:
           name: restart_httpd
